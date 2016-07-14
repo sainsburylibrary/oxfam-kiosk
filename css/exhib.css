@@ -1,0 +1,314 @@
+/**** REFERENCE ****/
+
+/*
+ * Armenia purple = #77b800
+ */
+
+/**** FONTS ****/
+
+/* Lato is a good approximation of Gill Sans */
+@import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic);
+
+/**** EXHIBITION CSS ****/
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #fff;
+}
+
+html {
+  font-size: 18px;
+  line-height: 140%;
+  font-family: 'Lato', 'Open Sans', sans-serif;
+  box-sizing: border-box;
+}
+
+:focus {
+  outline: unset;
+}
+
+a {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+  -webkit-tap-highlight-color: transparent;  
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0.9rem 0;
+  line-height: 160%;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 0.6rem 0;
+  line-height: 140%;
+}
+
+h3 {
+  font-size: 1.3rem;
+  margin: 0.39rem 0;
+  line-height: 120%;
+}
+
+#pages, #pages > .slick-list, #pages > .slick-list > .slick-track {
+  height: 100%;
+}
+
+/* The Nav bar */
+
+nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: table;
+}
+
+nav a {
+  display: table-cell;
+  text-align: center;
+  transition: background-color 0.5s, color 0.5s;
+  color: #949495;
+  text-decoration: none;
+  font-size: 1.6rem;
+  border-left: 1px solid #eeeeee;
+}
+
+nav a:first {
+  border-left: 0;
+}
+
+nav a.active {
+  background: #77b800;
+  color: rgba(255,255,255,0.7);
+}
+
+nav a img {
+  vertical-align: middle;
+}
+
+/* Pages of different kinds */
+
+.text-page, .video-page {
+  height: 100%;
+}
+
+.text-page, .gallery-page, .audio-page {
+  margin: 0.5rem 1rem
+}
+
+.video-page {
+  background: #000;
+}
+
+/* Gallery pages and the image viewer */
+
+/* .gallery-page .text-section {
+  height: 1000px;
+  overflow: hidden;
+  width: 30%;
+  float: left;
+}
+
+.gallery-page .gallery-section {
+    width: 900px;
+    margin: 0 auto;
+} */
+
+.gallery-section {
+  margin: 0 auto;
+}
+
+.gallery-section img {
+  float: left;
+  max-width: 200px;
+  margin-right: 4px;
+}
+
+.precached-gallery-image {
+  display: none;
+}
+
+.gallery-item {
+  padding: 4px;
+  margin-bottom: 4px;
+  background: #77b800 url('../images/zoom.png') 380px 166px no-repeat;
+  color: rgba(255,255,255,0.7);
+  overflow: none;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+}
+
+.gallery-item.zoomed {
+  width: 414px;
+}
+
+/* Image viewer */
+
+#image-viewer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  background-color: #000000;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url('../images/spinner.gif');
+}
+
+#image-viewer img {
+  margin: 0 auto;
+  transition: margin-left 0.5s;
+}
+
+#image-viewer-controls a,
+#image-viewer-caption {
+  background: rgba(22, 22, 22, 0.8);
+  border-radius: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  display: block;
+  position: fixed;
+  padding: 0 0.5rem;
+  text-decoration: none;
+  min-width: 2rem;
+  text-align: center;
+}
+
+#image-viewer-controls {
+  line-height: 3rem;
+  font-size: 28px;
+}
+
+#image-viewer-controls .close {
+  top: 25px;
+  left: 25px;
+}
+
+#image-viewer-controls .zoom-in {
+  top: 85px;
+  left: 85px;
+}
+
+#image-viewer-controls .zoom-out {
+  top: 85px;
+  left: 25px;
+}
+
+#image-viewer-controls .prev {
+  bottom: 25px;
+  left: 25px;
+}
+
+#image-viewer-controls .next {
+  bottom: 25px;
+  right: 25px;
+}
+
+#image-viewer-caption {
+  top: 25px;
+  right: 25px;
+  padding: 0.25rem 1rem;
+  text-align: left;
+  transition: opacity 0.25s;
+  max-width: 40%;
+  font-size: 90%;
+  line-height: 125%;
+}
+
+#image-viewer-caption h1 {
+  font-size: 1rem;
+  line-height: 110%;
+}
+
+/* Videos */
+
+#video-caption {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  color: #ffffff;
+  background: #000000 url('../images/pause-play.png') 0px -80px no-repeat;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: background-position 0.25s;
+  font-size: 0.8rem;
+  line-height: 110%;
+}
+
+#video-caption.audio {
+  width: 80px;
+}
+
+#video-caption.playing {
+  width: 80px;
+  background-position: 0px 0px;
+}
+
+#video-caption h1, #video-caption p {
+  margin: 0.25rem 0.5rem 0.25rem 100px;
+  line-height: 130%;
+}
+
+#video-caption h1 {
+  font-size: 1.1rem;
+}
+
+#video-progress {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  border: 0;
+  height: 6px;
+}
+
+#video-progress.video {
+  top: 0;
+  height: 6px;
+}
+
+#video-progress.audio {
+  bottom: 80px;
+  height: 80px;
+  width: 100%;
+  padding-left: 80px;
+}
+
+#video-progress::-webkit-progress-bar {
+  background-color: transparent;
+}
+
+#video-progress::-webkit-progress-value {
+  background-color: #000000;
+}
+
+#video-progress.audio::-webkit-progress-value {
+  background: rgba(0,0,0,0.25);
+}
+
+.audio-player {
+  float: right;
+}
+
+#pages .alongside-audio-accompanying-images {
+  padding-right: 700px;
+}
+
+#pages .audio-accompanying-images img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity 2s;
+  height: 100%;
+}
+
+#pages .audio-accompanying-images img.shown {
+  opacity: 1;
+}
